@@ -263,8 +263,8 @@ const pugToJsx = (source, userOptions = {}) => {
       '}',
       ...Object.entries(result.mixins).map(([ name, { jsx, variables } ]) => [
         '\n',
-        `export function ${name}(${variables.length > 0 ? '__params = {}' : ''}) {`,
-        variables.length > 0 && `  const { ${variables.join(', ')} } = __params;`,
+        `export function ${name}(${variables.length > 0 ? 'props = {}' : ''}) {`,
+        variables.length > 0 && `  const { ${variables.join(', ')} } = props;`,
         '  return (',
         jsx,
         '  );',
